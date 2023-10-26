@@ -1,18 +1,34 @@
 /**
  * LinearSearch10
  */
+import java.util.Scanner;
 public class LinearSearch10 {
-
     public static void main(String[] args) {
-        int[] arrayInt = {34, 18, 26, 48, 72, 20, 56, 63};
-        int key = 20;
+     Scanner input10 = new Scanner(System.in);
+        int key = 0;
         int hasil = 0;
-        for (int i = 0; i < arrayInt.length; i++) {
+        int jmlElemen = 0;
+        boolean pencarian = false;
+        System.out.print("Masukkan jumlah elemen array : ");
+        jmlElemen = input10.nextInt();
+        int[] arrayInt = new int[jmlElemen];
+        for (int i = 0; i < arrayInt.length;i++) {
+            System.out.print("Masukkan elemen array ke -"+i+" : ");
+            arrayInt[i] = input10.nextInt();
+        }
+        System.out.print("Masukkan key yang ingin dicari : ");
+        key = input10.nextInt();
+        for (int i = 0; i < arrayInt.length;i++) {
             if (arrayInt[i] == key) {
                 hasil = i;
+                pencarian = true;
                 break;
             }
         }
-        System.out.println("Key ada dalam array pada posisi indeks ke-"+hasil);
-    }
+        if (pencarian) {
+            System.out.println("Key ada dalam array pada posisi indeks ke-"+hasil);
+        } else {
+            System.out.println("Key tidak ditemukann dalam array");
+        }
+       }
 }
